@@ -1,40 +1,89 @@
-name: Deploy Website
+name: Build & Deploy Website
 
 on:
   push:
     branches:
-      - master  # or 'master' if that’s your default branch
+      - main  # Replace if your default branch is different
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      # 1️⃣ Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      # 2️⃣ Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20  # or whatever version you’re using
+          node-version: 20
 
+      # 3️⃣ Install npm dependencies
       - name: Install dependencies
         run: npm install
 
-      - name: Copy built site from dist/
+      # 4️⃣ Compile SCSS (optional)
+      - name: Compile SCSS
+        run: |
+          if [ -d "src/scss" ]; then
+            npx sass src/scss/styles.scss css/styles.css --no-source-map
+          else
+            echo "No SCSS folder found, skipping SCSS compilation"
+          fi
+
+      # 5️⃣ Prepare public directory
+      - name: Copy site files
         run: |
           mkdir -p public
-          cp -r node_modules/startbootstrap-agency/dist/* public/
+          cp -r index.html css assets js public/
 
+      # 6️⃣ Inject Google Analytics (optional, safe)
+      - name: Inject Google Analytics
+        run: |
+          if [ -n "${{ secrets.GA_TRACKING_ID }}" ]; then
+            GA_CODE="<script async src='https://www.googletagmanager.com/gtag/js?id=${{ secrets.GA_TRACKING_ID }}'></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${{ secrets.GA_TRACKING_ID }}');
+</script>"
+            sed -i "/<\/head>/i ${GA_CODE}" public/index.html
+          else
+            echo "GA_TRACKING_ID secret not set, skipping GA injection"
+          fi
+
+      # 7️⃣ Generate sitemap (optional)
+      - name: Generate sitemap
+        run: |
+          if command -v npx &> /dev/null; then
+            npx sitemap-generator-cli https://YOUR_USERNAME.github.io/REPO_NAME/ -o public/sitemap.xml || echo "Sitemap skipped"
+          else
+            echo "sitemap-generator-cli not installed, skipping sitemap"
+          fi
+
+      # 8️⃣ Add CNAME for custom domain (optional)
+      - name: Add CNAME
+        run: |
+          if [ -n "${{ secrets.CUSTOM_DOMAIN }}" ]; then
+            echo "${{ secrets.CUSTOM_DOMAIN }}" > public/CNAME
+          else
+            echo "CUSTOM_DOMAIN secret not set, skipping CNAME"
+          fi
+
+      # 9️⃣ Debug: List public folder contents
+      - name: List public folder
+        run: ls -R public/
+
+      # 🔟 Upload artifact for deployment
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
