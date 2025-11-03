@@ -3,7 +3,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - master  # or 'master' if that’s your default branch
+      - main  # or 'master' if that’s your default branch
 
 permissions:
   contents: read
@@ -51,4 +51,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        
