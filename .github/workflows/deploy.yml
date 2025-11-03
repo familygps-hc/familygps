@@ -53,7 +53,10 @@ jobs:
       # 6️⃣ Minify HTML
       - name: Minify HTML
         run: |
-          npx html-minifier --collapse-whitespace --remove-comments --minify-css true --minify-js true -o index.html index.html
+          if [ -f "index.html" ]; then
+            npx html-minifier --collapse-whitespace --remove-comments --minify-css true --minify-js true -o index.html index.html
+          fi
+
 
       # 7️⃣ Optimize Images
       - name: Optimize images
