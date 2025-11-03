@@ -44,9 +44,11 @@ jobs:
       # 5️⃣ Minify JS
       - name: Minify JS
         run: |
-          for file in js/*.js; do
-            npx terser "$file" -o "$file"
-          done
+          if [ -d "assets/js" ]; then
+            for file in assets/js/*.js; do
+              [ -f "$file" ] && npx terser "$file" -o "$file"
+            done
+          fi
 
       # 6️⃣ Minify HTML
       - name: Minify HTML
