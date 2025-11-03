@@ -71,4 +71,42 @@ jobs:
         run: |
           if [ -n "${{ secrets.GA_TRACKING_ID }}" ]; then
             cat << EOF >> public/index.html
-<script async src="https://www.googletagmanager.com/gtag/js?id=$
+<script async src="https://www.googletagmanager.com/gtag/js?id=${{ secrets.GA_TRACKING_ID }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${{ secrets.GA_TRACKING_ID }}');
+</script>
+EOF
+          else
+            echo "GA_TRACKING_ID secret not set, skipping GA injection"
+          fi
+
+      # 🔟 Generate sitemap
+      - name: Generate sitemap
+        run: |
+          npx sitemap-generator-cli https://${{ secrets.CUSTOM_DOMAIN }}/ -o public/sitemap.xml || echo "Sitemap skipped"
+
+      # 1️⃣1️⃣ Add CNAME
+      - name: Add CNAME
+        run: |
+          if [ -n "${{ secrets.CUSTOM_DOMAIN }}" ]; then
+            echo "${{ secrets.CUSTOM_DOMAIN }}" > public/CNAME
+          else
+            echo "No custom domain secret, skipping CNAME"
+          fi
+
+      # 1️⃣2️⃣ Debug public folder
+      - name: List public folder
+        run: ls -R public/
+
+      # 1️⃣3️⃣ Upload artifact for deployment
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs
