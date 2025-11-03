@@ -34,6 +34,7 @@ jobs:
 
       # 4️⃣ Compile SCSS (compressed) with Bootstrap
       - name: Compile SCSS
+        working-directory: src
         run: |
           if [ -d "src/scss" ]; then
             npx sass src/scss/styles.scss css/styles.css --style=compressed --load-path=node_modules
@@ -43,6 +44,7 @@ jobs:
 
       # 5️⃣ Minify JS
       - name: Minify JS
+        working-directory: src
         run: |
           if [ -d "assets/js" ]; then
             for file in assets/js/*.js; do
@@ -66,6 +68,7 @@ jobs:
 
       # 8️⃣ Prepare public folder
       - name: Copy site files
+        working-directory: src
         run: |
           mkdir -p public
           cp index.html public/
