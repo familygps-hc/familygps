@@ -33,7 +33,7 @@ jobs:
       - name: Copy built site from dist/
         run: |
           mkdir -p public
-          cp -r node_modules/startbootstrap-agency/dist/* public/
+          cp -r dist/* public/
 
       # 9️⃣ Debug: List public folder contents
       - name: List public folder
