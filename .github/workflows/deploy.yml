@@ -1,98 +1,40 @@
-name: Build & Deploy Website
+name: Deploy Website
 
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - master  # or 'master' if that’s your default branch
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repository
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20  # or whatever version you’re using
 
-      # 3️⃣ Install dependencies including Bootstrap
       - name: Install dependencies
-        run: |
-          npm install bootstrap
-          npm install --save-dev sass terser html-minifier imagemin-cli imagemin-mozjpeg imagemin-pngquant imagemin-gifsicle sitemap-generator-cli
+        run: npm install
 
-      # 4️⃣ Compile SCSS (compressed) with Bootstrap
-      - name: Compile SCSS
-        working-directory: src
-        run: |
-          if [ -d "src/scss" ]; then
-            npx sass src/scss/styles.scss css/styles.css --style=compressed --load-path=node_modules
-          else
-            echo "No SCSS folder found, skipping SCSS compilation"
-          fi
-
-      # 5️⃣ Minify JS
-      - name: Minify JS
-        working-directory: src
-        run: |
-          if [ -d "assets/js" ]; then
-            for file in assets/js/*.js; do
-              [ -f "$file" ] && npx terser "$file" -o "$file"
-            done
-          fi
-
-      # 6️⃣ Minify HTML
-      - name: Minify HTML
-        run: |
-          if [ -f "index.html" ]; then
-            npx html-minifier --collapse-whitespace --remove-comments --minify-css true --minify-js true -o index.html index.html
-          fi
-
-
-      # 7️⃣ Optimize Images
-      - name: Optimize images
-        run: |
-          mkdir -p public/assets/img
-          npx imagemin assets/img/* --out-dir=public/assets/img || echo "No images to optimize"
-
-      # 8️⃣ Prepare public folder
-      - name: Copy site files
-        working-directory: src
+      - name: Copy built site from dist/
         run: |
           mkdir -p public
-          cp index.html public/
-          cp -r css js public/
+          cp -r node_modules/startbootstrap-agency/dist/* public/
 
-      # 🔟 Generate sitemap
-      - name: Generate sitemap
-        run: |
-          npx sitemap-generator-cli https://${{ secrets.CUSTOM_DOMAIN }}/ -o public/sitemap.xml || echo "Sitemap skipped"
-
-      # 1️⃣1️⃣ Add CNAME
-      - name: Add CNAME
-        run: |
-          if [ -n "${{ secrets.CUSTOM_DOMAIN }}" ]; then
-            echo "${{ secrets.CUSTOM_DOMAIN }}" > public/CNAME
-          else
-            echo "No custom domain secret, skipping CNAME"
-          fi
-
-      # 1️⃣2️⃣ Debug public folder
-      - name: List public folder
-        run: ls -R public/
-
-      # 1️⃣3️⃣ Upload artifact for deployment
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
