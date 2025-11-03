@@ -66,23 +66,6 @@ jobs:
           cp index.html public/
           cp -r css js public/
 
-      # 9️⃣ Inject Google Analytics safely
-      - name: Inject Google Analytics
-        run: |
-          if [ -n "${{ secrets.GA_TRACKING_ID }}" ]; then
-            cat << EOF >> public/index.html
-<script async src="https://www.googletagmanager.com/gtag/js?id=${{ secrets.GA_TRACKING_ID }}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '${{ secrets.GA_TRACKING_ID }}');
-</script>
-EOF
-          else
-            echo "GA_TRACKING_ID secret not set, skipping GA injection"
-          fi
-
       # 🔟 Generate sitemap
       - name: Generate sitemap
         run: |
