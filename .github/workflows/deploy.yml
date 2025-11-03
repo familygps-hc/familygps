@@ -35,6 +35,10 @@ jobs:
           mkdir -p public
           cp -r node_modules/startbootstrap-agency/dist/* public/
 
+      # 9️⃣ Debug: List public folder contents
+      - name: List public folder
+        run: ls -R public/
+                  
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
