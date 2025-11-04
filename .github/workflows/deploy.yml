@@ -37,8 +37,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build production assets
-        run: npm run build   # assume this builds to dist/
+      # - name: Build production assets
+      #   run: npm run build   # assume this builds to dist/
 
       - name: Optimize images
         run: |
