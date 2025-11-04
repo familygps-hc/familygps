@@ -3,7 +3,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - main  # or 'master' if that’s your default branch
+      - main
 
 permissions:
   contents: read
@@ -17,28 +17,45 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20  # or whatever version you’re using
+          node-version: 20
 
       - name: Install dependencies
         run: npm install
 
-      - name: Copy built site from dist/
+      - name: Build production assets
+        run: npm run build   # assume this builds to dist/
+
+      - name: Optimize images
+        run: |
+          npm install -g imagemin-cli imagemin-mozjpeg imagemin-pngquant imagemin-svgo
+          imagemin "dist/assets/images/*.{jpg,jpeg,png,svg}" --out-dir="dist/assets/images"
+
+      - name: Minify CSS (if needed)
+        run: |
+          npm install -g cssnano-cli
+          cssnano dist/css/styles.css dist/css/styles.min.css
+          mv dist/css/styles.min.css dist/css/styles.css
+
+      - name: Copy built site from dist/ to public/
         run: |
           mkdir -p public
           cp -r dist/* public/
 
-      # 9️⃣ Debug: List public folder contents
-      - name: List public folder
-        run: ls -R public/
-                  
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -50,7 +67,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
