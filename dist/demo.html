@@ -310,144 +310,95 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <!-- Board Member item 13-->
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal131">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/6.jpg" alt="..." />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Name</div>
-                            <div class="portfolio-caption-subheading text-muted">Team Member</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6">
-                    <!-- Board Member item 14-->
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal141">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/6.jpg" alt="..." />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Name</div>
-                            <div class="portfolio-caption-subheading text-muted">Team Member</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6">
-                    <!-- Board Member item 15-->
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal61">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/6.jpg" alt="..." />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Name</div>
-                            <div class="portfolio-caption-subheading text-muted">Team Member</div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
     </section>
-    <!-- Contact-->
-    <section class="page-section" id="contact">
-        <div class="container">
+
+    <!-- contact form-->
+<section id="contact" class="page-section"  class="py-5 bg-light">
+  <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Contact Us</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-            <!-- * * * * * * * * * * * * * * *-->
-            <!-- * * SB Forms Contact Form * *-->
-            <!-- * * * * * * * * * * * * * * *-->
-            <!-- This form is pre-integrated with SB Forms.-->
-            <!-- To make this form functional, sign up at-->
-            <!-- https://startbootstrap.com/solution/contact-forms-->
-            <!-- to get an API token!-->
-            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                <div class="row align-items-stretch mb-5">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <!-- Name input-->
-                            <input class="form-control" id="name" type="text" placeholder="Your Name *"
-                                data-sb-validations="required" />
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                        </div>
-                        <div class="form-group">
-                            <!-- Email address input-->
-                            <input class="form-control" id="email" type="email" placeholder="Your Email *"
-                                data-sb-validations="required,email" />
-                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                        </div>
-                        <div class="form-group mb-md-0">
-                            <!-- Phone number input-->
-                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *"
-                                data-sb-validations="required" />
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group form-group-textarea mb-md-0">
-                            <!-- Message input-->
-                            <textarea class="form-control" id="message" placeholder="Your Message *"
-                                data-sb-validations="required"></textarea>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Submit success message-->
-                <!---->
-                <!-- This is what your users will see when the form-->
-                <!-- has successfully submitted-->
-                <div class="d-none" id="submitSuccessMessage">
-                    <div class="text-center text-white mb-3">
-                        <div class="fw-bolder">Form submission successful!</div>
-                        To activate this form, sign up at
-                        <br />
-                        <a
-                            href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                    </div>
-                </div>
-                <!-- Submit error message-->
-                <!---->
-                <!-- This is what your users will see when there is-->
-                <!-- an error submitting the form-->
-                <div class="d-none" id="submitErrorMessage">
-                    <div class="text-center text-danger mb-3">Error sending message!</div>
-                </div>
-                <!-- Submit Button-->
-                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled"
-                        id="submitButton" type="submit">Send Message</button></div>
-            </form>
-        </div>
-    </section>
+                <h3 class="section-subheading text-muted">Always help each other as though we are all members of one family - because we are.</h3>
+            </div>    
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <form id="contactForm" action="https://formspree.io/f/xvzkjobv" method="POST" novalidate>
+          <!-- Honeypot field for spam protection -->
+          <input type="text" name="_gotcha" style="display:none">
+
+          <div class="mb-3">
+            <label for="name" class="form-label" style="color: white;">Full Name</label>
+
+            <input type="text" class="form-control" id="name" name="name" required />
+            <div class="invalid-feedback" style="color: rgb(231, 119, 119);">Please enter your name.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label" style="color: white;">Email Address</label>
+            <input type="email" class="form-control" id="email" name="_replyto" required />
+            <div class="invalid-feedback" style="color: rgb(231, 119, 119);">Please enter a valid email address.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label" style="color: white;">Your Message</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            <div class="invalid-feedback" style="color: rgb(231, 119, 119);">Please enter a message.</div>
+          </div>
+
+          <div class="d-grid">a
+            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+          </div>
+
+          <!-- Confirmation message -->
+          <div id="formMessage" class="mt-3 text-success d-none">Thank you! Your message has been sent.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Bootstrap validation
+  (function () {
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      } else {
+        // Show confirmation message after submission
+        event.preventDefault();
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(response => {
+          if (response.ok) {
+            form.reset();
+            document.getElementById('formMessage').classList.remove('d-none');
+          }
+        });
+      }
+      form.classList.add('was-validated');
+    }, false);
+  })();
+</script>
+
     <!-- Footer-->
     <footer class="footer py-4">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
-                <div class="col-lg-4 my-3 my-lg-0">
+                <div class="col-lg-4 text-lg-start">Copyright &copy; FAMILY, Inc. 2026</div>
+                <!-- <div class="col-lg-4 my-3 my-lg-0">
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i
                             class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i
                             class="fab fa-linkedin-in"></i></a>
-                </div>
+                </div> -->
                 <div class="col-lg-4 text-lg-end">
                     <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
                     <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
@@ -493,7 +444,7 @@
                                     </li>
                                     <li>
                                         <strong>LinkedIn:</strong>
-                                        <a href="https://www.linkedin.com/in/harold-may-md-6232b24/" target="_blank">Dr.
+                                        <a href="https://www.linkedin.com/in/harold-may-96512435/" target="_blank">Dr.
                                             Harold May</a>
                                     </li>
                                 </ul>
@@ -550,9 +501,9 @@
                                     representing a large part of the Dorchester neighborhood. p>
                                 </p>
                                 <p>
-                                    Bill served on both Governors Deval Patrick’s and Charlie Baker’s Health Care
+                                    Bill served on both Governors Deval Patrick's and Charlie Baker's Health Care
                                     Transition
-                                    Committees, and on Acting Mayor Kim Janey’s Transition Committee. He is also
+                                    Committees, and on Acting Mayor Kim Janey's Transition Committee. He is also
                                     co-director
                                     of the Pat Cook Fund, which supports curriculum development around the environment.
                                     Bill
@@ -560,7 +511,7 @@
                                     world.
                                     He was involved with the Northern Irish peace process for over a decade and led a
                                     program in post-apartheid South Africa that included support of patients with HIV,
-                                    support of a women’s empowerment center, built a technology center for a school and
+                                    support of a women's empowerment center, built a technology center for a school and
                                     developed a micro-enterprise project. He helped to develop a family medicine program
                                     for
                                     the country of Vietnam. Bill has received numerous awards for his work and ideas.
@@ -606,12 +557,15 @@
                                     Wyoming. With a mission to improve the wellbeing of the whole community by providing
                                     accessible, high-quality healthcare, One Health deploys a model that emulates the
                                     FAMILY concept by integrating medical, behavioral health, pharmacy, and dental care
-                                    into a seamless experience for patients. He received his undergraduate degree from
+                                    into a seamless experience for patients. 
+                                </p>
+                                <p>
+                                    David received his undergraduate degree from
                                     Yale University and pursued medical education at the Harvard-MIT Division of Health
                                     Sciences and Technology. He completed residency training in Internal Medicine and
-                                    Pediatrics at the Brigham and Women’s Hospital, Massachusetts General Hospital, and
-                                    Children’s Hospital in Boston. He serves on the Montana Primary Care Association
-                                    board of directors and on the board of Big Sky Care Connect, Montana’s Health
+                                    Pediatrics at the Brigham and Women's Hospital, Massachusetts General Hospital, and
+                                    Children's Hospital in Boston. He serves on the Montana Primary Care Association
+                                    board of directors and on the board of Big Sky Care Connect, Montana's Health
                                     Information Exchange. He lives in Hardin, MT, and enjoys spending time with his wife
                                     and three children.</p>
                                 <p></p>
@@ -623,7 +577,7 @@
                                     </li>
                                     <li>
                                         <strong>LinkedIn:</strong>
-                                        <a href="https://www.linkedin.com/in/david-mark-md" target="_blank">David Mark,
+                                        <a href="https://www.linkedin.com/in/dave-mark-88532913/" target="_blank">David Mark,
                                             MD</a>
                                     </li>
                                 </ul>
@@ -712,30 +666,39 @@
                                 <p class="item-intro text-muted">Lawyer, Adjunct Professor, Panelist.</p>
                                 <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Charlie.jpg"
                                     alt="..." />
-                                <p>Charles F. O’Connell is the Managing Partner of the Boston law firm Taylor, Ganson &
-                                    Perrin, LLP. Mr. O’Connell concentrates in taxation, estate planning, trust and
+                                <p>Charles F. O'Connell is the Managing Partner of the Boston law firm Taylor, Ganson &
+                                    Perrin, LLP. Mr. O'Connell concentrates in taxation, estate planning, trust and
                                     estate administration, family business planning and family office administration for
-                                    domestic, cross border and international clients. Mr. O’Connell serves as the
-                                    Trustee of diverse types of trusts. Mr. O’Connell served as an arbitrator for the
-                                    National Association of Securities Dealers and the New York Stock Exchange. Mr.
-                                    O’Connell is the author of the book “Compensating United States Employees Abroad”
+                                    domestic, cross border and international clients. Mr. O'Connell serves as the
+                                    Trustee of diverse types of trusts. Mr. O'Connell served as an arbitrator for the
+                                    National Association of Securities Dealers and the New York Stock Exchange. 
+                                </p>
+                                <p>
+                                    Mr. O'Connell is the author of the book “Compensating United States Employees Abroad”
                                     which was published as Volume Four of the International Business Portfolios by the
-                                    Matthew Bender and Company division of the Times Mirror Company. Mr. O’Connell was
-                                    also a contributing author to Bender’s Federal Tax Service. Mr. O’Connell served as
+                                    Matthew Bender and Company division of the Times Mirror Company. Mr. O'Connell was
+                                    also a contributing author to Bender's Federal Tax Service. Mr. O'Connell served as
                                     an Adjunct Professor of Law at Suffolk University Law School for seven years where
                                     he taught courses on the legal aspects of providing trust and investment services as
-                                    well as the taxation of qualified retirement plans. Mr. O’Connell has also served as
+                                    well as the taxation of qualified retirement plans. 
+                                </p>
+                                <p>    
+                                    Mr. O'Connell has also served as
                                     a panel member for continuing legal education sponsored by the American Bar
-                                    Association and Suffolk University Law School. Mr. O’Connell presented a paper
+                                    Association and Suffolk University Law School. Mr. O'Connell presented a paper
                                     entitled “The Lawyer as Trustee” at the 1999 American Bar Association Annual
-                                    Meeting. Mr. O’Connell is a magna cum laude graduate (BS) of Boston College, a cum
+                                    Meeting. Mr. O'Connell is a magna cum laude graduate (BS) of Boston College, a cum
                                     laude graduate (JD) of Suffolk University Law School and has a law degree (LLB) from
-                                    Cambridge University, Cambridge, England. Mr. O’Connell is admitted to law practice
+                                    Cambridge University, Cambridge, England. 
+                                </p>
+                                <p>
+                                    Mr. O'Connell is admitted to law practice
                                     in the Commonwealth of Massachusetts, the US District Court for the District of
                                     Massachusetts, the US Court of Appeals for the First Circuit, the Supreme Court of
-                                    the United States and the United States Tax Court. Mr. O’Connell is a Member of the
+                                    the United States and the United States Tax Court. Mr. O'Connell is a Member of the
                                     Boston and Massachusetts Bar Associations and a full Member of the Society of Trust
-                                    and Estate Practitioners holding the Trust and Estate Practitioner designation.</p>
+                                    and Estate Practitioners holding the Trust and Estate Practitioner designation.
+                                </p>
                                 <ul class="list-inline">
                                     <li>
                                         <strong>Interests:</strong>
@@ -775,15 +738,18 @@
                                     Partnerships/Planning</p>
                                 <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Darrell.jpg"
                                     alt="..." />
-                                <p>Compassionate and dedicated professional with well over 13 years of experience with
+                                <p>Darrell LeMar is a compassionate and dedicated professional with well over 13 years of experience with
                                     educating and advocating for a better quality of living for students and individuals
                                     in the community. Creative problem-solver to develop solutions to complex situations
                                     in sensitive settings. Excellent program and people management to ensure funds are
                                     used most effectively in non-profit, academic, and cooperate environments to ensure
-                                    goals are met with data-driven results. Outstanding interpersonal and communication
+                                    goals are met with data-driven results. 
+                                </p>
+                                <p>Darrell demonstrated outstanding interpersonal and communication
                                     abilities to collaborate with the community, partners, staff, and leadership to
                                     reach consensus to support the organization's objective. Fluent in English and
-                                    Spanish to meet the needs of a diverse population.</p>
+                                    Spanish to meet the needs of a diverse population.
+                                </p>
                                 <ul class="list-inline">
                                     <li>
                                         <strong>Interests:</strong>
@@ -824,13 +790,16 @@
                                     Development and Violence Prevention.</p>
                                 <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Leonard.jpg"
                                     alt="..." />
-                                <p>More than 30 years leading non-profit, community-based organizations, including
+                                <p>Leonard M. Lee has more than 30 years leading non-profit, community-based organizations, including
                                     developing strategies and creating high-impact programs for political campaigns and
                                     municipal and state programs, most notably in the public health arena with a focus
                                     on youth development and prevention of violence. A high achiever who consistently
                                     exceeds organizational goals and objectives with creative and innovative problem
                                     solving, complemented by strong coalition building among political and community
-                                    leaders and their constituents. A highly motivated self-starter who favors
+                                    leaders and their constituents. 
+                                </p>
+                                <p>    
+                                    Leonard is a highly motivated self-starter who favors
                                     fast-paced, demanding grass-roots environments and provides a management style that
                                     grows and maintains lasting community relationships by providing outstanding service
                                     and conscientious follow-up. A strategic planner who brings strong analytical skills
@@ -876,13 +845,16 @@
                                 <h2 class="text-uppercase">Riché C. Zamor, Sr.</h2>
                                 <p class="item-intro text-muted">Retired, Public Health Administrator.</p>
                                 <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Riche.jpg" alt="..." />
-                                <p>Over twenty-five years of progressively responsible experience in the development and
+                                <p>Riché C. Zamor, Sr. has over twenty-five years of progressively responsible experience in the development and
                                     management of community health promotion and education programs. Demonstrated skills
                                     in management planning, health care policy, program development, negotiation and
                                     problem solving. Ability to manage and supervise complex programs through teamwork.
                                     Solid grounding in data analysis and substantive knowledge of public health issues.
                                     Committed to capacity building of individuals, organizations and communities as a
-                                    core development approach. An institution builder with strong team building,
+                                    core development approach. 
+                                </p>
+                                <p>    
+                                    Riché  is an institution builder with strong team building,
                                     negotiation, and interpersonal communications skills. Experience in international
                                     public health, effective community-level responses to complex health challenges, and
                                     knowledge of the opportunities and challenges in working with community-based
@@ -892,10 +864,7 @@
                                     and organizing skills. Strongly committed to excellence in multicultural environment
                                     that fosters diversity. Ability to use technology effectively in teaching and
                                     learning, ability to work collaboratively, and a commitment to higher education.
-                                <p></p>
-                                <b>Specialties:</b> Relevant technical and field experience in program development.
-                                Familiarity with Latin America and Caribbean economies, institutions, social conditions,
-                                political development, culture and environment.</p>
+                                </p>
                                 <ul class="list-inline">
                                     <li>
                                         <strong>Interests:</strong>
@@ -903,8 +872,7 @@
                                     </li>
                                     <li>
                                         <strong>LinkedIn:</strong>
-                                        <a href="https://www.linkedin.com/in/richezamor/" target="_blank">Riché C.
-                                            Zamor, Sr.</a>
+                                        <a href="https://www.linkedin.com/in/richezamor/" target="_blank">Riché C. Zamor, Sr.</a>
                                     </li>
                                 </ul>
                                 <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
@@ -933,17 +901,24 @@
                             <div class="modal-body">
                                 <!-- Project details-->
                                 <h2 class="text-uppercase">Aggie May</h2>
-                                <p class="item-intro text-muted">Steady wind beneath FAMILY'S wings.</p>
+                                <p class="item-intro text-muted">FAMILY - Accountant, Treasurer, Steady Hands</p>
                                 <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Aggie.jpg" alt="..." />
-                                <p><b>******** Please help with Aggie's Bio ***********</b></p>
+                                <p>
+                                    Aggie was born in Canada and grew up on a farm in Abbotsford, a city in the Fraser Valley of British Columbia. She was raised in the Mennonite community, a Protestant denomination known for sending volunteers around the world to support agricultural, educational, medical, and humanitarian work in twenty‑seven countries — including Haiti.
+                                </p>
+                                <p>
+                                    In August 1959, Aggie left Canada and arrived in Deschapelles, Haiti, to work at Hôpital Albert Schweitzer. The following January, she met a young doctor named Hal May, who had recently arrived from the United States. Aggie and Hal soon married and spent nearly eleven years in Haiti serving at the Schweitzer Hospital. Their three daughters were born there. Their first daughter, born with significant medical challenges, passed away at a very young age and was laid to rest in Haiti.
+                                </p>
+                                <p>
+                                    In 1970, the May family left Haiti and settled in the Boston area. Aggie devoted herself to raising her family while also taking on temporary office positions as Dr. May worked at Brigham and Women's Hospital. During their years in Boston, Aggie worked alongside Dr. May in a variety of nonprofit initiatives, including FAMILY. Over the decades, she served in many roles — accountant, treasurer, and steadfast supporter — always guided by her commitment to service.
+                                </p>
+                                <p>
+                                    Aggie and Dr. May's dedication to helping others is reflected in the paths their daughters have chosen. Allison is a physician in the Boston area who has spent more than twenty‑two years caring for the homeless community. Jeannette is a public health educator, and Margie, the youngest, is a dietitian.
+                                </p>                                                                
                                 <ul class="list-inline">
                                     <li>
                                         <strong>Interests:</strong>
                                         Community Support, Administration
-                                    </li>
-                                    <li>
-                                        <strong>Link:</strong>
-
                                     </li>
                                 </ul>
                                 <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
@@ -1042,82 +1017,19 @@
                                     Adjunct Professor</p>
                                 <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Emanus.jpg"
                                     alt="..." />
+                                
                                 <p>
-                                    Emanus has been married to his beautiful wife, Michaelle, for over 31 year and they
-                                    are the proud parents of four young adult men, Emanuel, Michael, Samuel and
-                                    Nathanael. The passion to serve is a lifelong endeavor. As a man of faith, serving
-                                    others is core to his belief.
-
-                                    <hr /><b>1947</b>
-                                    <hr />
-                                    Larry Mellon, owned and operated a cattle ranch in Arizona. One day, he reads an
-                                    article in LIFE magazine profiling Dr. Albert Schweitzer's medical
-                                    missionary work in Gabon, Africa. Shortly thereafter, with Schweitzer's
-                                    encouragement and guidance, he embarked on a mission to create a similar third-world
-                                    hospital. “He and his wife, Gwen Grant Mellon, enrolled at Tulane University; he
-                                    received his medical degree in 1954 at the age of 44, and she became qualified as a
-                                    medical-laboratory technician. In 1956, the Mellons opened the Hôpital Albert
-                                    Schweitzer in Deschapelles, Haiti.”
-
-
-                                    <hr /><b>1973</b>
-                                    <hr />
-                                    June 14, 1973, after a long and arduous labor, Sylvie gave birth to a handsome baby
-                                    boy in Verrettes, a remote town in the Artibonite department in Haiti. After
-                                    arriving home, her baby boy was quickly rushed to Albert Schweitzer in Deschapelles
-                                    where he was diagnosed and treated for an acute asthma attack by local and visiting
-                                    medical specialists. These two milestones may seem disconnected; but to put things
-                                    in context, one must understand the situation on the ground. Haiti is ravaged by
-                                    many obstacles; political instability, environmental crisis, earthquakes,
-                                    hurricanes, insecurity, economical hardship and access to quality healthcare remain
-                                    a luxury to this day. Larry and Gwen’s passion for humanity, their dedication and
-                                    personal sacrifice made a lasting impact on the lives of tens of thousands of
-                                    patients and healthcare professionals at HAS. It was at that same hospital, where a
-                                    young physician named, Dr. May, followed God's leading to serve those in need.
-
-
-                                    <hr /><b>1985</b>
-                                    <hr />
-                                    At age 12, Emanus, left Haiti with his mother and three siblings to join his Dad and
-                                    the family settled in the Boston, area. He finished his education and earned a
-                                    Master’s degree in Computer Science at Brandeis University. Now, the baton has been
-                                    passed to Emanus to carry on the legacy of the Mellons; to pay it forward. For over
-                                    20 Years, Emanus has been volunteering his time to different organizations in the
-                                    Boston Inner City and in Haiti. He served as a Board Member from 2016-2020 for
-                                    IFSI-USA, an organization with a mission to “expedite the successful integration of
-                                    recent immigrants into the social and economic fabric of the United States with
-                                    justice and dignity that help new immigrants in MA”. Emanus also served on the HDI
-                                    Steering Committee, from 2016-2018, at the Boston Foundation. “HDI is a legacy of
-                                    The Haiti Fund, a five-year fund established at the Boston Foundation to respond to
-                                    Haiti’s devastating arthquake in 2010 in solidarity with the Greater Boston
-                                    Haitian-American community.” Emanus has been a FAMILY Board Member since 2018.
-
-                                    <hr /> <b>2010 - Present</b>
-                                    <hr />
-                                    Emanus is passionate about STEM based education. For over 15 years, he has been a
-                                    member of a Haiti-based organization called FEDUDEV, “Founded in Cap-Haitien in
-                                    2007, the Forum for Education and Development of Haiti (Fédudevh) is an organization
-                                    whose primary mission is to contribute to the international influence of Haiti as
-                                    well as to its development through scientific education. and technology of young
-                                    people.” Every year, Emanus leads the effort to raise funds, in-kind donations and
-                                    educational supplies to help organize the Annual Haiti FIRST Lego League
-                                    Championship. The winning team would travel to the US to represent Haiti in the
-                                    World FIRST Robotics Championship Competition.
-
-
-                                    <hr /> <b>2022</b>
-                                    <hr />
-                                    Emanus graduated from Benjamin Franklin Institute of Technology back in 1993, “an
-                                    affordable, urban, private, nonprofit college serving the Boston region and
-                                    committed to student success and career readiness in technology fields.” With
-                                    74% students of color and 57% First Gen College Students, BFIT remains true to it’s
-                                    founding principles and they are committed to help the underserved communities. In
-                                    the Spring of 2022, Emanus embarked on a new journey as an Adjunct Professor at BFIT
-                                    where he is using his professional skills and life experiences to teach emerging
-                                    Technologies, including Virtual Reality (VR), Augmented Reality (AR) and other
-                                    innovative subjects.
+                                    Emanus Simeon is a Principal DevOps Engineer at PDSVISION and an Adjunct Professor at Franklin Cummings Tech in Boston. He brings a rich and diverse background spanning IT, Cloud Computing, Augmented and Virtual Reality (AR/VR), Desktop Publishing, and STEM education. 
                                 </p>
-
+                                <p>
+                                    Emanus holds a master's in software engineering from Brandeis University, a bachelor's degree in computer science from Wentworth Institute of Technology, and an associate degree in Electronic Engineering Technology from Franklin Cummings Tech. His academic foundation reflects a lifelong commitment to learning, innovation, and technical excellence.
+                                </p>
+                                <p>
+                                    Born in Haiti, Emanus immigrated to the United States in the mid 1980s, spending several years in different cities in Massachusetts and Florida before ultimately returning to the Boston area, where he now resides. He has been married to his wife, Michaelle, for over 31 years, and together they are the proud parents of four young adult sons: Emanuel, Michael, Samuel, and Nathanael. Guided by his faith, Emanus views service as a lifelong calling and a core expression of his beliefs.
+                                </p>
+                                <p>
+                                    Emanus serves on the Board of ShelterBox USA, an organization dedicated to ensuring no family is left without shelter after disaster. He is also a board member of FAMILY, an NGO supporting initiatives in Haiti, Boston, Montana, and Tuskegee University. His passion for advancing science and technology extends to his active support of the FIRST Robotics Competition in Haiti through First Lego League Haiti (FEDUDEVH).
+                                </p>
                                 <ul class="list-inline">
                                     <li>
                                         <strong>Interests:</strong>
@@ -1163,25 +1075,30 @@
                                     West Roxbury High School and at Hyde Park High in Boston, MA. Dealing mostly with
                                     Haitian youngsters who recently migrated to the United States, Joel helped them
                                     adjust to the American culture while maintaining and honoring their Haitian culture.
-                                </p>>
-                                <p>In 2006, his passion and love for Haiti took him back to Haiti as Executive Director
+                                </p>
+                                <p>
+                                    In 2006, his passion and love for Haiti took him back to Haiti as Executive Director
                                     of a non-profit organization providing education and health care to the people in
                                     the Bourdon area of Port-au-Prince. Joel currently teaches Haitian Creole to health
                                     care providers and others at the University of Massachusetts. His heart is fully
                                     committed to help eradicate illiteracy and denounce injustice wherever it may be.
                                     Working with Greening Haiti Fund is another extension of his efforts to help the
-                                    people of Haiti. </p>
+                                    people of Haiti. 
+                                </p>
                                 <p>Dedicated school and community based leader with 25+ years of extensive experience
                                     managing all facets of school system needs including: curriculum, leadership and
                                     workforce development, organizational change management, employee relations,
                                     compensation and benefits strategies. International experiences.</p>
-                                <P>"Life is a puzzle. Imagine if we work together to find the right pieces and its
+                                <P>
+                                    <i>
+                                        "Life is a puzzle. Imagine if we work together to find the right pieces and its
                                     meaning." Joel Theodat
+                                    </i>
                                 </p>
                                 <ul class="list-inline">
                                     <li>
-                                        <strong>Client:</strong>
-                                        Window
+                                        <strong>Interests:</strong>
+                                        Leadership, Cultural Development, Education, Volunteering
                                     </li>
                                     <li>
                                         <strong>LinkedIN:</strong>
